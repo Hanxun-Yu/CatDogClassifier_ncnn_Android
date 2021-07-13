@@ -38,7 +38,7 @@ class VGG_192x192(nn.Module):
         self.conv8_2 = nn.Conv2d(16, 16, 3, padding=(1, 1))  # 128 * 112 * 112
         # view
 
-        self.fc1 = nn.Linear(16 * 3 * 3, out_features=num_classes)
+        self.fc1 = nn.Linear(16 * 3 * 3, out_features=num_classes)    # 上层输出 16x3x3
         #self.fc2 = nn.Linear(4096, 4096)
         #self.fc3 = nn.Linear(4096, out_features=num_classes)
         # softmax 1 * 1 * 1000
