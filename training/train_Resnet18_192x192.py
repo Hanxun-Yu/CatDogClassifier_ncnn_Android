@@ -16,13 +16,13 @@ def save_checkpoint(state, filename='checkpoint.pth.tar'):
 
 img_size = 192
 BARCH_SIZE = 32
-LR = 0.0001
+LR = 0.00001
 EPOCH = 200
 save_model_path = "./ResNet18_192x192_models/"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(torch.cuda.is_available())
-normalize = transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+normalize = transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])  # img = (img - 127.5) / 127.5
 transform = transforms.Compose([
     transforms.Resize(size=(img_size, img_size)),
     transforms.RandomRotation(20),
@@ -37,7 +37,7 @@ validation_dataset = torchvision.datasets.ImageFolder(root=r'\\10.1.1.125\Develo
 test_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=16, shuffle=True)
 
 ResNet = ResNet18().to(device)
-pthfile = r'./ResNet18_192x192_models/20.pth'
+pthfile = r'./ResNet18_192x192_models/80.pth'
 ResNet.load_state_dict(torch.load(pthfile))
 
 #alexNet = alexNet(pretrained=True)
