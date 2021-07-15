@@ -27,6 +27,8 @@ int AlgSDK::initModel(const char* param_path, const char* model_path, int mNetIn
 
 float AlgSDK::process(cv::Mat &img, int image_type) {
 
+    //https://zhuanlan.zhihu.com/p/231101125
+
     ncnn::Mat ncnn_img;
     ncnn_img = ncnn::Mat::from_pixels_resize((const unsigned char*) img.data, image_type, img.cols,
                                              img.rows, mNetInputSize, mNetInputSize);
