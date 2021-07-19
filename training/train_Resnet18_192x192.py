@@ -16,7 +16,7 @@ def save_checkpoint(state, filename='checkpoint.pth.tar'):
 
 img_size = 192
 BARCH_SIZE = 32
-LR = 0.00001
+LR = 0.0001
 EPOCH = 200
 save_model_path = "./ResNet18_192x192_models/"
 
@@ -37,11 +37,9 @@ validation_dataset = torchvision.datasets.ImageFolder(root=r'\\10.1.1.125\Develo
 test_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=16, shuffle=True)
 
 ResNet = ResNet18().to(device)
-pthfile = r'./ResNet18_192x192_models/80.pth'
-ResNet.load_state_dict(torch.load(pthfile))
+#pthfile = r'./ResNet18_192x192_models/80.pth'
+#ResNet.load_state_dict(torch.load(pthfile))
 
-#alexNet = alexNet(pretrained=True)
-#alexNet = torch.load("./alexNet.pth")
 criterion = nn.CrossEntropyLoss()
 opti = torch.optim.Adam(ResNet.parameters(), lr=LR)
 
