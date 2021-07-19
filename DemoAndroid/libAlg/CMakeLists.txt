@@ -26,6 +26,7 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
+        src/main/cpp/JniHelper.cpp
         src/main/cpp/AlgSDK.cpp
         src/main/cpp/jni.cpp)
 
