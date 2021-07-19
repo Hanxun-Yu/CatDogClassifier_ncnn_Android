@@ -7,6 +7,10 @@ package org.study.demo.libAlg;
  */
 public class Jni {
 
+    static  {
+        System.loadLibrary("jni");
+    }
+
     public native void init(String modelBinPath,String modelParamPath);
 
     /***

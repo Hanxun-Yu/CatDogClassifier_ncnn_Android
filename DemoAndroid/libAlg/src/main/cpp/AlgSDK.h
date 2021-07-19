@@ -15,10 +15,18 @@ class AlgSDK {
     ncnn::Net mNet;
     int mNetInputSize;
 
-    AlgSDK();
     ~AlgSDK();
-    int initModel(const char* param_path, const char* model_path, int mNetInputSize);
+
+
+public:
+    AlgSDK();
+
+    int initModel(const char* model_path, const char* param_path, int mNetInputSize);
+
     float process(cv::Mat &img, int image_type);
+
+    float process(uint8_t* data, int w, int h, int image_type);
+
 
 };
 

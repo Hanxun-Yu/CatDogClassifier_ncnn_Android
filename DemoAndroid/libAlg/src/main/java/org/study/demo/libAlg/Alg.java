@@ -16,10 +16,16 @@ public class Alg {
 
     public void init(Context context) {
         String modelFoldName = "model";
-        String rootPath = context.getFilesDir().getPath();
+        String rootPath = context.getObbDir().getPath();
 
         if (!new File(rootPath + File.separator + modelFoldName).exists()) {
             AssetsUtil.copy(context, modelFoldName, rootPath);
         }
+        jni.init(rootPath + File.separator + modelFoldName + File.separator + "180.bin",
+                rootPath + File.separator + modelFoldName + File.separator + "180.param");
+    }
+
+    public float process(byte[] data, int w, int h) {
+        return jni.process(data, w, h);
     }
 }
