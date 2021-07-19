@@ -37,11 +37,9 @@ validation_dataset = torchvision.datasets.ImageFolder(root=r'\\10.1.1.125\Develo
 test_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=32, shuffle=True)
 
 VGGNet = VGG_192x192(2).to(device)
-pthfile = r'./VGG_192x192_models/180.pth'
-VGGNet.load_state_dict(torch.load(pthfile))
+#pthfile = r'./VGG_192x192_models/180.pth'
+#VGGNet.load_state_dict(torch.load(pthfile))
 
-#alexNet = alexNet(pretrained=True)
-#alexNet = torch.load("./alexNet.pth")
 criterion = nn.CrossEntropyLoss()
 opti = torch.optim.Adam(VGGNet.parameters(), lr=LR)
 
